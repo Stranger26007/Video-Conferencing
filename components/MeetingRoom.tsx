@@ -25,7 +25,7 @@ const MeetingRoom = () => {
   const isPersonalRoom = !!searchParams.get('personal');
 
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
-  const [showParticipants, setshowParticipants] = useState('false');
+  const [showParticipants, setshowParticipants] = useState(false);
 
   const router = useRouter();
 
@@ -53,9 +53,8 @@ const MeetingRoom = () => {
           <CallLayout />
         </div>
 
-        <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'show-block':showParticipants})}>
-          <CallParticipantsList onClose={()=>
-            setshowParticipants(false)} />
+        <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'show-block':showParticipants,})}>
+        <CallParticipantsList onClose={() => setshowParticipants(false)} />
         </div>
       </div>
 
