@@ -1,12 +1,13 @@
 import MeetingTypeList from '@/components/MeetingTypeList';
-import React from 'react'
+import React from 'react';
+import moment from 'moment-timezone';
 
 const Home = () => {
-  const now = new Date();
+  // Get the current time in a specific timezone, e.g., 'Asia/Kolkata' for Indian Standard Time
+  const now = moment.tz('Asia/Kolkata');
 
-  const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-  const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
-
+  const time = now.format('hh:mm A'); // Format time as 02:35 AM
+  const date = now.format('dddd, MMMM D, YYYY'); // Format date as Tuesday, June 18, 2024
 
   return (
     <section className='flex size-full flex-col gap-10 text-white ' >
